@@ -9,23 +9,20 @@ namespace FunBooksAndVideos.Framework
     public class PurchaseOrderProcessor
     {
         public PurchaseOrder PurchaseOrder { get; }
+        public IRuleEngine<PurchaseOrder> RuleEngine { get; }
 
-        public PurchaseOrderProcessor(PurchaseOrder purchaseOrder)
+        public PurchaseOrderProcessor(PurchaseOrder purchaseOrder, IRuleEngine<PurchaseOrder> ruleEngine)
         {
             PurchaseOrder = purchaseOrder;
+            RuleEngine = ruleEngine;
         }
 
-
-        public bool Process()
+        public void Process()
         {
-            var allRules = PurchaseOrder.ItemLines;
+            // Step 1: Process the purchase order
 
-            foreach (var item in allRules)
-            {
-                item.RunPostProcessingRules();
-            }
-
-            return true;
+            // Step 2: Run all the rules
+            RuleEngine.Run(PurchaseOrder);
         }
     }
 }

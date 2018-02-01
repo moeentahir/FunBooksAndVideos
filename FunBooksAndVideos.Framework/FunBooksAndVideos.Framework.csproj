@@ -40,18 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IRule.cs" />
+    <Compile Include="Contracts\IBusinessRule.cs" />
     <Compile Include="Contracts\IRuleEngine.cs" />
-    <Compile Include="Entities\Commodity.cs" />
     <Compile Include="Entities\Membership.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\PurchaseOrderItem.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\PurchaseOrder.cs" />
     <Compile Include="Services\BusinessRules\MembershipActivationRule.cs" />
     <Compile Include="Services\BusinessRules\ProductShippingSlipGenerationRule.cs" />
     <Compile Include="Services\PurchaseOrderProcessor.cs" />
-    <Compile Include="Services\RuleEngine.cs" />
+    <Compile Include="Services\PurchaseOrderRuleEngine.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

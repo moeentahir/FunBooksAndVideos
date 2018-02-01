@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MembershipActivationRuleTests.cs" />
+    <Compile Include="ProductShippingSlipGenerationRuleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseOrderProcessorTests.cs" />
   </ItemGroup>

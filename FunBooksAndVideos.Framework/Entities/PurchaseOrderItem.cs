@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public class RuleEngine : IRuleEngine
+    public class PurchaseOrderItem
     {
+        public string Name { get; set; }
 
-
-        Dictionary<typeof(T), List<T>>
-
-        void RegisterRule<T>(IRule<T> rule)
-        {
-
-        }
     }
 }

@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public class MembershipActivationRule : IRule<Membership>
+    public class MembershipActivationRule : IBusinessRule<PurchaseOrder>
     {
-        public void Run(Membership item)
+        public bool WasActionSuccessfullyPerformed { get; set; }
+
+        public bool IsApplicable(PurchaseOrder purchaseOrder) => purchaseOrder.Items.OfType<Membership>().Any();
+
+        public void PerfromAction(PurchaseOrder purchaseOrder)
         {
-            // write code here to activate the membership
+            // Activate the membership
+            WasActionSuccessfullyPerformed = true;
         }
     }
 }

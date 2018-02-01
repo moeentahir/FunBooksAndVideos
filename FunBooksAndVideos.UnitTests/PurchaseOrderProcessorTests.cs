@@ -11,50 +11,25 @@ namespace FunBooksAndVideos.UnitTests
     public class PurchaseOrderProcessorTests
     {
         [TestMethod]
-        public void Process_With_No_Rules()
+        public void Verify_Rule_Engine_Is_Called_After_Processing_PO()
         {
-            var bookWithoutRules = new Product("The Girl on the train", ProductType.Book, Enumerable.Empty<IRule<Product>>());
             var purchaseOrder = new PurchaseOrder()
             {
                 ID = 3344656,
                 CustomerId = 4567890,
                 Total = 48.50M,
-                ItemLines = new List<Commodity>
+                Items = new List<PurchaseOrderItem>
                 {
-                    bookWithoutRules
+                    new Product { Name = "The Girl on the train", Type = ProductType.Book }
                 }
             };
 
-            var processor = new PurchaseOrderProcessor(purchaseOrder);
+            var ruleEngine = new Mock<IRuleEngine<PurchaseOrder>>();
+            var processor = new PurchaseOrderProcessor(purchaseOrder, ruleEngine.Object);
 
             processor.Process();
 
-        }
-
-        [TestMethod]
-        public void Only_Product_Rule_Runs()
-        {
-
-            var emailRule = new Mock<IRule<Product>>();
-
-            var bookWithemailRule = new Product("The Girl on the train", ProductType.Book, new List<IRule<Product>> { new ProductShippingSlipGenerationRule() } );
-            var purchaseOrder = new PurchaseOrder()
-            {
-                ID = 3344656,
-                CustomerId = 4567890,
-                Total = 48.50M,
-                ItemLines = new List<Commodity>
-                {
-                    bookWithemailRule
-                }
-            };
-
-            var processor = new PurchaseOrderProcessor(purchaseOrder);
-
-            processor.Process();
-
-            emailRule.Verify(r => r.Run(bookWithemailRule));
-
+            ruleEngine.Verify(r => r.Run(purchaseOrder), Times.Once);
         }
     }
 }

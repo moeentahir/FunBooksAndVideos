@@ -14,11 +14,11 @@ namespace FunBooksAndVideos.Framework
 
         public decimal Total { get; set; }
 
-        public List<Commodity> ItemLines { get; set; }
+        public List<PurchaseOrderItem> Items { get; set; }
 
         public PurchaseOrder()
         {
-            ItemLines = new List<Commodity>();
+            Items = new List<PurchaseOrderItem>();
         }
     }
 }

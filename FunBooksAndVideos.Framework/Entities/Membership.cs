@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public class Membership : Commodity
+    public class Membership : PurchaseOrderItem
     {
-        public Membership(List<IRule<Membership>> postProcessingRules) : base(postProcessingRules.OfType<IRule<Commodity>>())
-        {
 
-        }
     }
 }
