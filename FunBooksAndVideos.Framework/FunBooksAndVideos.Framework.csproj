@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IRule.cs" />
-    <Compile Include="Contracts\IRuleRunner.cs" />
+    <Compile Include="Contracts\IRuleEngine.cs" />
     <Compile Include="Entities\Commodity.cs" />
     <Compile Include="Entities\Membership.cs" />
     <Compile Include="Entities\Product.cs" />
@@ -51,6 +51,7 @@
     <Compile Include="Services\BusinessRules\MembershipActivationRule.cs" />
     <Compile Include="Services\BusinessRules\ProductShippingSlipGenerationRule.cs" />
     <Compile Include="Services\PurchaseOrderProcessor.cs" />
+    <Compile Include="Services\RuleEngine.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
