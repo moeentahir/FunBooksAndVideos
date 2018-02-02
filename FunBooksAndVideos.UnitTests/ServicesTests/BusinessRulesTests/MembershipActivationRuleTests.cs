@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace FunBooksAndVideos.UnitTests
 {
     [TestClass]
-    public class ProductShippingSlipGenerationRuleTests
+    public class MembershipActivationRuleTests
     {
         [TestMethod]
         public void Empty_Purchase_Order_Should_Not_Call_This_Rule()
@@ -14,7 +14,7 @@ namespace FunBooksAndVideos.UnitTests
             var expected = false;
             var purchaseOrder = new PurchaseOrder();
 
-            var rule = new ProductShippingSlipGenerationRule();
+            var rule = new MembershipActivationRule();
 
             var actual = rule.IsApplicable(purchaseOrder);
 
@@ -22,37 +22,37 @@ namespace FunBooksAndVideos.UnitTests
         }
 
         [TestMethod]
-        public void Purchase_Order_With_Membership_Should_Not_Call_This_Rule()
+        public void Purchase_Order_With_Product_Should_Not_Call_This_Rule()
         {
             var expected = false;
             var purchaseOrder = new PurchaseOrder()
             {
-                Items = new List<PurchaseOrderItem>
+                Items = new List<PurchasableItem>
+                {
+                     new Book()
+                }
+            };
+
+            var rule = new MembershipActivationRule();
+
+            var actual = rule.IsApplicable(purchaseOrder);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Purchase_Order_With_Membership_Should_Call_This_Rule()
+        {
+            var expected = true;
+            var purchaseOrder = new PurchaseOrder()
+            {
+                Items = new List<PurchasableItem>
                 {
                      new Membership()
                 }
             };
 
-            var rule = new ProductShippingSlipGenerationRule();
-
-            var actual = rule.IsApplicable(purchaseOrder);
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void Purchase_Order_With_Product_Should_Call_This_Rule()
-        {
-            var expected = true;
-            var purchaseOrder = new PurchaseOrder()
-            {
-                Items = new List<PurchaseOrderItem>
-                {
-                     new Product()
-                }
-            };
-
-            var rule = new ProductShippingSlipGenerationRule();
+            var rule = new MembershipActivationRule();
 
             var actual = rule.IsApplicable(purchaseOrder);
 
@@ -65,15 +65,15 @@ namespace FunBooksAndVideos.UnitTests
             var expected = true;
             var purchaseOrder = new PurchaseOrder()
             {
-                Items = new List<PurchaseOrderItem>
+                Items = new List<PurchasableItem>
                 {
-                    new Product(),
+                    new Book(),
                     new Membership(),
-                    new Product()
+                    new Video()
                 }
             };
 
-            var rule = new ProductShippingSlipGenerationRule();
+            var rule = new MembershipActivationRule();
 
             var actual = rule.IsApplicable(purchaseOrder);
 

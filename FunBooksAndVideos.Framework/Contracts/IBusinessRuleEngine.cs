@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public interface IRuleEngine<T>
+    public interface IBusinessRuleEngine<T>
     {
         List<IBusinessRule<T>> Rules { get; }
 

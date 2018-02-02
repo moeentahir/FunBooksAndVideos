@@ -18,13 +18,13 @@ namespace FunBooksAndVideos.UnitTests
                 ID = 3344656,
                 CustomerId = 4567890,
                 Total = 48.50M,
-                Items = new List<PurchaseOrderItem>
+                Items = new List<PurchasableItem>
                 {
-                    new Product { Name = "The Girl on the train", Type = ProductType.Book }
+                    new Book { Name = "The Girl on the train"}
                 }
             };
 
-            var ruleEngine = new Mock<IRuleEngine<PurchaseOrder>>();
+            var ruleEngine = new Mock<IBusinessRuleEngine<PurchaseOrder>>();
             var processor = new PurchaseOrderProcessor(purchaseOrder, ruleEngine.Object);
 
             processor.Process();

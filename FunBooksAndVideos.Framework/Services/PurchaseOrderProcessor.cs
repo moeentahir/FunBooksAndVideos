@@ -9,9 +9,9 @@ namespace FunBooksAndVideos.Framework
     public class PurchaseOrderProcessor
     {
         public PurchaseOrder PurchaseOrder { get; }
-        public IRuleEngine<PurchaseOrder> RuleEngine { get; }
+        public IBusinessRuleEngine<PurchaseOrder> RuleEngine { get; }
 
-        public PurchaseOrderProcessor(PurchaseOrder purchaseOrder, IRuleEngine<PurchaseOrder> ruleEngine)
+        public PurchaseOrderProcessor(PurchaseOrder purchaseOrder, IBusinessRuleEngine<PurchaseOrder> ruleEngine)
         {
             PurchaseOrder = purchaseOrder;
             RuleEngine = ruleEngine;

@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public class Membership : PurchasableItem
+    public abstract class PurchasableItem
     {
-        public MembershipType Type { get; set; }
-
-        public override string ToString() => $"{ Type } Club Membership";
 
     }
 }

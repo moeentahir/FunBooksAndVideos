@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public class PurchaseOrderRuleEngine : IRuleEngine<PurchaseOrder>
+    public class PurchaseOrderRuleEngine : IBusinessRuleEngine<PurchaseOrder>
     {
         public List<IBusinessRule<PurchaseOrder>> Rules { get; }
 

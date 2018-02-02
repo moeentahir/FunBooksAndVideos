@@ -41,10 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IBusinessRule.cs" />
-    <Compile Include="Contracts\IRuleEngine.cs" />
+    <Compile Include="Contracts\IBusinessRuleEngine.cs" />
+    <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\Membership.cs" />
     <Compile Include="Entities\Product.cs" />
-    <Compile Include="Entities\PurchaseOrderItem.cs" />
+    <Compile Include="Entities\PurchasableItem.cs" />
+    <Compile Include="Entities\Video.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\PurchaseOrder.cs" />

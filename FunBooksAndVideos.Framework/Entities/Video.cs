@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public class PurchaseOrderItem
+    public class Video : Product
     {
-        public string Name { get; set; }
-
+        public override string ToString() => $"Video \"{Name}\"";
     }
 }

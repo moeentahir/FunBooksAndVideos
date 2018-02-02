@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public class Product : PurchaseOrderItem
+    public abstract class Product : PurchasableItem
     {
-        public ProductType Type { get; set; }
+        public string Name { get; set; }
+
     }
 }

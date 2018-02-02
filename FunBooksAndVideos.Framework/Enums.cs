@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public enum ProductType
+    public enum MembershipType
     {
         Book,
-        Video
+        Video,
+        Premium
     }
 }

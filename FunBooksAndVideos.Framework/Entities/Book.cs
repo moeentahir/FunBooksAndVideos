@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
-    public class Membership : PurchasableItem
+    public class Book : Product
     {
-        public MembershipType Type { get; set; }
 
-        public override string ToString() => $"{ Type } Club Membership";
-
+        public override string ToString() => $"Book \"{Name}\"";
     }
 }
