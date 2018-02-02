@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Framework
 {
+    /// <summary>
+    /// This class processes the purchase order and then runs the business rules after that 
+    /// </summary>
     public class PurchaseOrderProcessor
     {
         public PurchaseOrder PurchaseOrder { get; }
@@ -17,6 +20,9 @@ namespace FunBooksAndVideos.Framework
             RuleEngine = ruleEngine;
         }
 
+        /// <summary>
+        /// After processing the purchase order, this method will run all the business rules as well
+        /// </summary>
         public void Process()
         {
             // Step 1: Process the purchase order
